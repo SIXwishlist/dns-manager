@@ -1,0 +1,53 @@
+{% extends '/base_auth.twig' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Register</h3>
+                </div>
+
+                <div class="panel-body">
+                    <form role="form" method="post" action="{{ url }}/registerPOST">
+                        <fieldset>
+                            <div id="error-container" class="alert alert-danger" role="alert" style="{% if error %}display: block;{% endif %}">
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                <span class="sr-only">Error:</span>
+                                <span id="error">{% if error %}{{ error }}{% endif %}</span>
+                            </div>
+
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Firstname" name="firstname" type="text" autofocus required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Lastname" name="lastname" type="text" autofocus required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Password" name="password" id="password" type="password" value="">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Confirm password" name="confirmpassword" id="confirmpassword" type="password" value="">
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                </label>
+                                <a href="{{ url }}/login" class="pull-right">Already registred ?</a>
+                            </div>
+
+                            <button type="submit" class="btn btn-lg btn-success btn-block">Register</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
